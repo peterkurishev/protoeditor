@@ -36,7 +36,21 @@ $.widget('proto.editor', {
         });
         this.forms = forms;
         
-//        $('input[name="background-color"], input[name="color"]').rgbacolorpicker();
+        $('input[name="background-color"], input[name="color"]').ColorPicker({
+            onSubmit: function(hsb, hex, rgb, el) {
+                $(el).val('#' + hex);
+                $(el).ColorPickerHide();
+            },
+            onBeforeShow: function() {
+            	var v = this.value;
+            	if (v.indexOf('rgb') == 0) {
+            		v = v.replace('rgb(', '').replace('rgba(', '').replace(' ', '').replace(')', '').split(',');
+            		v = {r: v[0], g: v[1], b: v[2]};
+            	}
+            	
+                $(this).ColorPickerSetColor(v);
+            }
+        });
         
         $('form', this.element).bind('submit' + this.eventNamespace, $.proxy(this, '_onForm')).dialog({
             modal: true
@@ -61,8 +75,8 @@ $.widget('proto.editor', {
                 this.selected.remove();
                 this.body.sortable('refresh');
             break;
-            case 'form':
-            	this.selected.editable('inner', '<form action=""><dl><dt>Инпут</dt><dd><input type="text" /></dd><dd>Радио <input type="radio" /></dd><dd>Чекбокс<input type="checkbox" /></dd><dt>Текст</dt><dd><textarea name="" id="" cols="30" rows="10"></textarea></dd></form>')
+            case 'form' :
+                this.selected.editable('inner', '<form action=""><dl><dt>Инпут</dt><dd><input type="text" /></dd><dd>Радио <input type="radio" /></dd><dd>Чекбокс<input type="checkbox" /></dd><dt>Текст</dt><dd><textarea name="" id="" cols="30" rows="10"></textarea></dd></form>')
             break;
             case 'background' :
             case 'clear' :
@@ -297,6 +311,6 @@ $.widget("proto.editable", {
         this.element.addClass(this.widgetName + '-selected');
     },
     inner: function(html) {
-    	this.content.html(html);
+        this.content.html(html);
     }
 });
