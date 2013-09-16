@@ -74,6 +74,7 @@ body {
 	transition: margin .5s ease;
 	border-bottom: solid transparent 5px;
 	z-index: 1000;
+	left: 0;
 }
 .editor-menu:hover {
 	margin-top: 0;
@@ -87,6 +88,10 @@ body {
 	line-height: 30px;
 	text-align: center;
 	margin: 5px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .editor-menu > li > a {
 	display: block;
@@ -98,6 +103,10 @@ body {
 	font-size: 22px;
 	border-radius: 2px;
 	background: #e74c3c;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 .editor-menu > li > a:hover {
 	background: #f75c4c;
