@@ -11,6 +11,10 @@ $.widget('proto.editor', {
             this.context.hide();
         }, this)).menu().hide().delegate('> li > a', 'click' + this.eventNamespace, $.proxy(this, '_onMenu'));
         
+        this.element.resizable({
+        	handles: 'e'
+        });
+        
         this.body.sortable({
             containment: 'parent',
             items: '.editable',
@@ -148,6 +152,7 @@ $.widget('proto.editor', {
     retrive: function() {
     	return {
     		html: this.getHtml(),
+    		width: this.body.css('width'),
     		total: $('.editable', this.body).length,
     		blocks: this.getBlocks()
     	}
