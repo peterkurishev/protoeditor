@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Protoeditor</title>
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery-ui-1.10.3.custom.js"></script>
+<script src="js/editor.js"></script>
+<link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.css">
+<link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+	<div class="editor">
+		<ul class="editor-menu">
+			<li><a href="#add" title="Добавить элемент">+</a></li>
+		</ul>
+		<div class="editor-body">
+			<div class="editable"></div>
+			<div class="editable"></div>
+			<div class="editable"></div>
+			<div class="editable"></div>
+			<div class="editable"></div>
+			<div class="editable"></div>
+		</div>
+		<ul class="editor-context">
+			<li><a href="#background">Фон</a></li>
+			<li><a href="#clear">Перенос</a></li>
+			<li><a href="#font">Шрифт</a></li>
+			<li><a href="#edit">Текст</a></li>
+		</ul>
+		<form action="#background" title="Настройка фона">
+			<dl>
+				<dt>Цвет:</dt>
+				<dd><input type="text" name="background-color"/> <samp></samp></dd>
+				
+				<dd>Фон:</dd>
+				<dd><input type="text" name="background-image" /></dd>
+				
+				<dd>Положение фона:</dd>
+				<dd>
+					<table>
+						<tr>
+							<td><input type="radio" name="background-position" value="0% 0%" /></td>
+							<td><input type="radio" name="background-position" value="50% 0%" /></td>
+							<td><input type="radio" name="background-position" value="100% 0%" /></td>
+						</tr>
+						<tr>
+							<td><input type="radio" name="background-position" value="0% 50%" /></td>
+							<td><input type="radio" name="background-position" value="50% 50%" /></td>
+							<td><input type="radio" name="background-position" value="100% 50%" /></td>
+						</tr>
+						<tr>
+							<td><input type="radio" name="background-position" value="0% 100%" /></td>
+							<td><input type="radio" name="background-position" value="50% 100%" /></td>
+							<td><input type="radio" name="background-position" value="100% 100%" /></td>
+						</tr>
+					</table>
+				</dd>
+			</dl>
+			<button type="submit">Ok</button>
+		</form>
+		<form action="#clear" title="Настройка переносов">
+			<dl>
+				<dt>Отображать блок:</dt>
+				<dd><input type="radio" name="clear" id="clear-1" value="none" /> <label for="clear-1">с той же строки</label></dd>
+				<dd><input type="radio" name="clear" id="clear-2" value="left" /> <label for="clear-2">с новой строки</label></dd>
+			</dl>
+			<button type="submit">Ok</button>
+		</form>
+		<form action="#font" title="Настройка текста">
+			<dl>
+				<dt>Цвет:</dt>
+				<dd><input type="text" name="color"/> <samp></samp></dd>
+			</dl>
+			<button type="submit">Ok</button>
+		</form>		
+	</div>
+</body>
+</html>
