@@ -141,6 +141,7 @@ body {
 	outline: dashed 1px rgba(155,155,155,.5);
 	margin: 15px;
 	position: relative;
+	overflow: hidden;
 }
 .editor-body > .editable:hover {
 	outline-color: rgba(155,155,155,.3);
@@ -211,4 +212,7 @@ body {
 	left: 50%;
 	margin-left: -5px;
 	background: rgba(100,200,100, 1);
+}
+.proto-editable-content {
+	height: 100%;
 }

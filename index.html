@@ -6,9 +6,11 @@
 <script src="js/jquery-1.9.1.js"></script>
 <script src="js/jquery-ui-1.10.3.custom.js"></script>
 <script src="js/colorpicker.js"></script>
+<script src="js/widgets.js"></script>
 <script src="js/editor.js"></script>
 <link rel="stylesheet" href="css/jquery-ui-1.10.3.custom.css">
 <link rel="stylesheet" href="css/colorpicker.css">
+<link rel="stylesheet" href="css/widgets.css">
 <link href='http://fonts.googleapis.com/css?family=Finger+Paint' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="css/editor.css">
 </head>
@@ -31,6 +33,7 @@
 			<li><a href="#font">Шрифт</a></li>
 			<li><a href="#edit">Текст</a></li>
 			<li><a href="#form">Форма</a></li>
+			<li><a href="#gallery">Галерея</a></li>
 			<li><a href="#remove">Удалить</a></li>
 		</ul>
 		<form action="#background" title="Настройка фона">
@@ -79,6 +82,18 @@
 			</dl>
 			<button type="submit">Ok</button>
 		</form>		
+	</div>
+	<div id="gallery" style="display: none;">
+		<a href="#prev" title="Назад" class="wroll-prev">prev</a>
+		<ul class="wroll-ribbon">
+		    <li><img src="http://25.media.tumblr.com/f355e1ea798a45b4a158af490846751b/tumblr_mmheg9mYhn1qb57azo1_500.jpg" alt="" /></li>
+		    <li><img src="http://fc03.deviantart.net/fs70/f/2012/032/e/4/female_wizard___01_by_aditya777-d4oaidm.jpg" alt="" /></li>
+		    <li><img src="http://behance.vo.llnwd.net/profiles20/2198651/projects/7376995/dd1dd4b87325e721a97ef8b78a59431a.jpg" alt="" /></li>
+		    <li><img src="http://media-cache-ak0.pinimg.com/736x/7c/07/ec/7c07ec2846a4d1bb14da30a35349627a.jpg" alt="" /></li>
+		    <li><img src="http://media-cache-ec0.pinimg.com/originals/8d/ef/57/8def571807ae6db0313987314ee57e7a.jpg" alt="" /></li>
+		    <li><img src="http://farm2.staticflickr.com/1440/878491784_0a0dfe341b_b.jpg" alt="" /></li>
+		</ul>
+		<a href="#next" title="Далее" class="wroll-next">next</a>
 	</div>
 </body>
 </html>

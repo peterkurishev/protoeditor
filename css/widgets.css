@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+
+.wroll {
+	min-height: 300px;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+}
+.wroll-ribbon,
+.wroll-next,
+.wroll-prev {
+    position: absolute;
+    top: 0;
+}	
+.wroll-next,
+.wroll-prev {	
+	width: 40px;
+	height: 100%;
+	z-index: 2;
+	background: transparent;
+}
+.wroll-next {
+	right: 0;
+}
+.wroll-prev {
+    left: 0;
+}
+.wroll-ribbon {
+    left: 0;
+    -webkit-transition: margin ease 1s;
+    transition: margin ease 1s;
+}
+.wroll-ribbon,
+.wroll-ribbon > li {
+	display: block;
+	height: 100%;
+	width: 100%;
+}
+.wroll-ribbon > li {
+	display: block;
+	float: left;
+}
+@CHARSET "UTF-8";
+
+.wcropper {
+	position: relative;
+	overflow: hidden;	
+}
+.wcropper-cropped {
+	max-width: none;
+	max-height: none;
+    position: absolute;
+    opacity: 1;
+    transition: opacity .2s ease;
+}
+.loading .wcropper-cropped {
+	opacity: 0.01;
+}
+.wcropper-landscape .wcropper-cropped {
+	width: 100%;
+}
+.wcropper-portrait .wcropper-cropped {
+    height: 100%;
+}

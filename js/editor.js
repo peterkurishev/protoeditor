@@ -4,7 +4,12 @@ $(window).load(function() {
 
 $.widget('proto.editor', {
     _create: function() {
-        this.body = $('.editor-body', this.element);
+    	this.gallery = $('#gallery').removeAttr('id').removeAttr('style').css({
+    		width: '100%',
+    		height: '100%'
+    	}).remove();
+
+    	this.body = $('.editor-body', this.element);
         
         this.menu = $('.editor-menu', this.element).delegate('> li > a', 'click' + this.eventNamespace, $.proxy(this, '_onMenu'));
         this.context = $('.editor-context').remove().appendTo('body').bind('mouseleave' + this.eventNamespace, $.proxy(function(e) {
@@ -77,6 +82,11 @@ $.widget('proto.editor', {
             break;
             case 'form' :
                 this.selected.editable('inner', '<form action=""><dl><dt>Инпут</dt><dd><input type="text" /></dd><dd>Радио <input type="radio" /></dd><dd>Чекбокс<input type="checkbox" /></dd><dt>Текст</dt><dd><textarea name="" id="" cols="30" rows="10"></textarea></dd></form>')
+            break;
+            case 'gallery' :
+            	var g = this.gallery.clone();
+            	this.selected.editable('getcontent').html('').append(g);
+            	g.wroll()
             break;
             case 'background' :
             case 'clear' :
@@ -249,6 +259,8 @@ $.widget("proto.editable", {
     _resize: function(e, ui) {
         var str = (ui.size.width <= (ui.size.height > 99 ? 100 : 70)) ? '' : 'px';
         
+        $('.wroll', this.content).wroll();
+        
         this.element.attr({ // размеры выводятся над блоком
             'data-width': ui.size.width + str,
             'data-height': ui.size.height + str
@@ -312,5 +324,8 @@ $.widget("proto.editable", {
     },
     inner: function(html) {
         this.content.html(html);
+    },
+    getcontent: function() {
+    	return this.content;
     }
 });
